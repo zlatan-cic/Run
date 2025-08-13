@@ -1,9 +1,7 @@
 #include "Factory.h"
 #include <iostream>
 
-
 using namespace std;
-
 
 Factory::Factory(RenderWindow* window)
 {
@@ -19,7 +17,7 @@ Factory::Factory(RenderWindow* window)
 void Factory::loadLevel(
 	vector<GameObject>& gameObjects,
 	VertexArray& canvas,
-	InputDispatcher&, inputDispatcher)
+	InputDispatcher& inputDispatcher)
 {
 
 }
