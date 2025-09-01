@@ -1,5 +1,4 @@
-
-#include <iostream>
+#pragma once
 #include "SFML/Graphics.hpp"
 #include <vector>
 #include "GameObject.h"
@@ -11,66 +10,62 @@ using namespace sf;
 
 int main()
 {
-    // Create a fullscrean window
-    RenderWindow window(
-        VideoMode::getDesktopMode(),
-        "Booster", Style::Fullscreen);
+	// Create Fullscreen window
+	RenderWindow window(VideoMode::getDesktopMode(), "Booster Run", Style::Fullscreen);
 
-    // A vertaxarray to hold all our graphics
-    VertexArray canvas(Quads, 0);
+	//A VertexArray to holld all our graphics.
+	VertexArray canvas(Quads, 0);
 
-    // This can dispatch events to any object.
-    InputDispatcher inputDispatcher(&window);
+	//This can hold dispatch events to any object.
+	InputDispatcher inputdispatcher(&window);
 
-    // Everything will be a game object
-    // This vector will hold them all;
-    vector <GameObject> gameObjects;
+	// Everything will be a game object.
+	// This vector will hold them all;
+	vector <GameObject> gameObjects;
 
-    // This class has all the knowledge
-    // to counstruct game object that do many diffrent things.
-    Factory factory(&window);
+	// This class has all the knowlege to counstruct game object that do many different tings
+	Factory factory(&window);
 
-    // This call will send the vector of game objects
-    // the canvas to draw on and the input dispatcher
-    // to the factory to set up the game.
+	// This call will send the vector of game objects
+	// the canvas to draw on and the input dispatcher
+	// to the factory to set up the game.
+	factory.loadLevel(gameObjects, canvas, inputdispatcher);
 
-    factory.loadLevel(gameObjects,
-        canvas,
-        inputDispatcher);
+	// A clock for timing
+	Clock clock;
 
-    // A clock for timing.
-    Clock clock;
-    
-    // The color we use for the background
-    const Color BACKGROUND_COLOR(100, 100, 100, 255);
+	// The color we use for the background
+	const Color BACKGROUND_COLOR(100, 100, 100, 255);
 
+	// This is the game loop.
+	// We do not need to add to it.
+	// Look how short and simple it is
+	while (window.isOpen())
+	{
+		// Mesure the time taken this frame
+		float timeTakenInSeconds = clock.restart().asSeconds();
 
-    // This is the game loop.
-    // We do not need to add to it.
-    // Look how short and simple it is!
-    while (window.isOpen())
-    {
-        // Measure the time taken this frame.
-        float timeTakenInSeconds = clock.restart().asSeconds();
+		// Handle the player input.
+		inputDispatcher.dispatchInputEvents();
 
-        // Handle the player input.
-        inputDispatcher.dispatchInputEvents();
+		// Clear the previous frame.
+		window.clear(BACKGROUND_COLOR);
 
-        // Clear the previous frame.
-        window.clear(BACKGROUND_COLOR);
+		// Update all the game objects. !!!!
+		for (auto& gameObject : gameObjects)
+		{
+			gameObject.update(timeTakenInSeconds);
+		}
 
-        // Update all the game objects.
-        for (auto& gameObject : gameObjects)
-        {
-            gameObject.draw(canvas);
-        }
+		// Draw all the game bojects to the canvas
+		for (auto& gameObject : gameObjects)
+		{
+			gameObject.draw(canvas);
+		}
 
-        // Show the new frame;
-        window.display();
+		// Show the new frame.
+		window.display();
+	}
 
-
-    } // ending game loop
-
-
-    return 0;
+	return 0;
 }

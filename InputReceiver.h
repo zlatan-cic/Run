@@ -4,13 +4,14 @@
 using namespace sf;
 using namespace std;
 
+
 class InputReceiver
 {
 private:
-	vector<Event> mEvents;
+	vector<Event> m_Event;
 
 public:
 	void addEvent(Event event);
-	vector<Event>& getEvents();
-	void clearEvents();
+	vector<Event>& getEvent();
+	void clearEvents()
 };

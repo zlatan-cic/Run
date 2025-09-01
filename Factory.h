@@ -2,7 +2,6 @@
 #include <vector>
 #include "GameObject.h"
 #include "SFML/Graphics.hpp"
-
 using namespace sf;
 using namespace std;
 
@@ -17,12 +16,10 @@ public:
 	Factory(RenderWindow* window);
 
 	void loadLevel(
-		vector <GameObject>& gameObjects,
+		vector<GameObject>& gameObjects,
 		VertexArray& canvas,
-		InputDispatcher& inputDispatcher
-	);
+		InputDispatcher& inputDispatcher);
 
 	Texture* m_Texture;
-
 
 };
