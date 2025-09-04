@@ -13,5 +13,5 @@ private:
 public:
 	void addEvent(Event event);
 	vector<Event>& getEvent();
-	void clearEvents()
+	void clearEvents();
 };

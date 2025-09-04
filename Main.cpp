@@ -46,7 +46,7 @@ int main()
 		float timeTakenInSeconds = clock.restart().asSeconds();
 
 		// Handle the player input.
-		inputDispatcher.dispatchInputEvents();
+		inputdispatcher.dispatchInputEvents();
 
 		// Clear the previous frame.
 		window.clear(BACKGROUND_COLOR);
