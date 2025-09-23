@@ -134,6 +134,7 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="InputDispatcher.cpp" />
     <ClCompile Include="InputReceiver.cpp" />
+    <ClCompile Include="LevelUpdate.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="Update.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
+    <ClInclude Include="LevelUpdate.h" />
     <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>
