@@ -2,7 +2,7 @@
 #include "Graphics.h"
 
 // We will come back to this soon
-//class Animator;
+class Animator;
 class PlayerUpdate;
 
 class PlayerGraphics : public Graphics
@@ -12,7 +12,7 @@ private:
     int m_VertexStartIndex = -999;
 
     // We will come back to this soon
-    //Animator* m_Animator;
+    Animator* m_Animator;
 
     IntRect* m_SectionToDraw = new IntRect;
     IntRect* m_StandingStillSectionToDraw = new IntRect;

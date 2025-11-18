@@ -9,7 +9,13 @@ class LevelUpdate : public Update
 {
 private:
 	// Tracks whether the game is currently paused.
-	bool m_IsPaused = true;
+	// 
+	// 
+	//bool m_IsPaused = true;
+	bool m_IsPaused = false; /// Temporarily change
+	//
+	//
+	//
 
 	// Holds the position and size of all platforms in the level.
 	vector<FloatRect*> m_PlatformPositions;

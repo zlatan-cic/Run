@@ -8,6 +8,10 @@
 #include "CameraUpdate.h"
 #include "CameraGraphics.h"
 
+#include "PlatformUpdate.h"
+#include "PlatformGraphics.h"
+
+
 using namespace std;
 
 Factory::Factory(RenderWindow* window)
@@ -55,6 +59,34 @@ void Factory::loadLevel(
 
 	// Make the LevelUpdate aware of the player
 	levelUpdate->assemble(nullptr, playerUpdate);
+
+	// For the platforms
+	for (int i = 0; i < 8; ++i)
+	{
+		GameObject platform;
+		shared_ptr<PlatformUpdate> platformUpdate =
+			make_shared<PlatformUpdate>();
+		platformUpdate->assemble(nullptr, playerUpdate);
+		platform.addComponent(platformUpdate);
+
+		shared_ptr<PlatformGraphics> platformGraphics =
+			make_shared<PlatformGraphics>();
+
+		platformGraphics->assemble(
+			canvas, platformUpdate,
+			IntRect(PLATFORM_TEX_LEFT, PLATFORM_TEX_TOP,
+				PLATFORM_TEX_WIDTH, PLATFORM_TEX_HEIGHT));
+
+
+		platform.addComponent(platformGraphics);
+		gameObjects.push_back(platform);
+
+		levelUpdate->addPlatformPosition(
+			platformUpdate->getPositionPointer());
+	}
+	// End platforms
+
+
 
 	// For both the cameras
 	const float width = float(VideoMode::getDesktopMode().width);
