@@ -129,6 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraGraphics.cpp" />
+    <ClCompile Include="CameraUpdate.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -136,10 +138,14 @@
     <ClCompile Include="InputReceiver.cpp" />
     <ClCompile Include="LevelUpdate.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PlayerGraphics.cpp" />
+    <ClCompile Include="PlayerUpdate.cpp" />
     <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraGraphics.h" />
+    <ClInclude Include="CameraUpdate.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameObject.h" />
@@ -147,6 +153,8 @@
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
     <ClInclude Include="LevelUpdate.h" />
+    <ClInclude Include="PlayerGraphics.h" />
+    <ClInclude Include="PlayerUpdate.h" />
     <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>

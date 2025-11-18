@@ -12,7 +12,7 @@ private:
 	bool m_IsPaused = true;
 
 	// Holds the position and size of all platforms in the level.
-	vector<FloatRect*> m_PlatformPosition;
+	vector<FloatRect*> m_PlatformPositions;
 
 	// Shared camera time value
 	float* m_CameraTime = new float;
