@@ -1,12 +1,11 @@
 #pragma once
-
 #include <SFML/Audio.hpp>
 
 using namespace sf;
 
 class SoundEngine
 {
-	private:
+private:
 	static Music music;
 
 	static SoundBuffer m_ClickBuffer;
@@ -18,7 +17,7 @@ public:
 	SoundEngine();
 	static SoundEngine* m_s_Instance;
 
-	static bool m_MusicIsPlaying;
+	static bool mMusicIsPlaying;
 
 	static void startMusic();
 	static void pauseMusic();

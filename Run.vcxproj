@@ -139,10 +139,13 @@
     <ClCompile Include="InputReceiver.cpp" />
     <ClCompile Include="LevelUpdate.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuGraphics.cpp" />
+    <ClCompile Include="MenuUpdate.cpp" />
     <ClCompile Include="PlatformGraphics.cpp" />
     <ClCompile Include="PlatformUpdate.cpp" />
     <ClCompile Include="PlayerGraphics.cpp" />
     <ClCompile Include="PlayerUpdate.cpp" />
+    <ClCompile Include="RainGraphics.cpp" />
     <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
@@ -157,10 +160,13 @@
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
     <ClInclude Include="LevelUpdate.h" />
+    <ClInclude Include="MenuGraphics.h" />
+    <ClInclude Include="MenuUpdate.h" />
     <ClInclude Include="PlatformGraphics.h" />
     <ClInclude Include="PlatformUpdate.h" />
     <ClInclude Include="PlayerGraphics.h" />
     <ClInclude Include="PlayerUpdate.h" />
+    <ClInclude Include="RainGraphics.h" />
     <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>

@@ -24,6 +24,7 @@ void GameObject::update(float elapsedTime)
 		}
 	}
 }
+
 void GameObject::draw(VertexArray& canvas)
 {
 	for (auto component : m_Components)

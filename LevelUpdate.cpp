@@ -3,8 +3,6 @@
 #include "SoundEngine.h"
 #include "PlayerUpdate.h"
 
-#include <random>
-
 void LevelUpdate::assemble(
 	shared_ptr<LevelUpdate> levelUpdate,
 	shared_ptr<PlayerUpdate> playerUpdate)
@@ -12,7 +10,7 @@ void LevelUpdate::assemble(
 	m_PlayerPosition = playerUpdate->getPositionPointer();
 
 	//temp
-	SoundEngine::startMusic();
+	//SoundEngine::startMusic();
 }
 
 void LevelUpdate::connectToCameraTime(float* cameraTime)
@@ -53,13 +51,13 @@ void LevelUpdate::positionLevelAtStart()
 
 int LevelUpdate::getRandomNumber(int minHeight, int maxHeight)
 {
-
+#include <random>
 	// Seed the random number generator with current time
-	random_device rd;
-	mt19937 gen(rd());
+	std::random_device rd;
+	std::mt19937 gen(rd());
 
 	// Define a uniform distribution for the desired range
-	uniform_int_distribution<int>
+	std::uniform_int_distribution<int>
 		distribution(minHeight, maxHeight);
 
 	// Generate a random height within the specified range
@@ -77,6 +75,7 @@ void LevelUpdate::update(float timeSinceLastUpdate)
 			m_GameOver = false;
 			*m_CameraTime = 0;
 			m_TimeSinceLastPlatform = 0;
+			int platformToPlacePlayerOn;
 			positionLevelAtStart();
 		}
 

@@ -11,6 +11,12 @@
 #include "PlatformUpdate.h"
 #include "PlatformGraphics.h"
 
+#include "MenuUpdate.h"
+#include "MenuGraphics.h"
+
+#include "RainGraphics.h" 
+
+
 
 using namespace std;
 
@@ -86,6 +92,35 @@ void Factory::loadLevel(
 	}
 	// End platforms
 
+	// Rain
+	int rainCoveragePerObject = 25;
+	int areaToCover = 350;
+	for (int h = -areaToCover / 2;
+		h < areaToCover / 2;
+		h += rainCoveragePerObject)
+	{
+		for (int v = -areaToCover / 2;
+			v < areaToCover / 2;
+			v += rainCoveragePerObject)
+		{
+			GameObject rain;
+
+			shared_ptr<RainGraphics> rainGraphics =
+				make_shared<RainGraphics>(
+					playerUpdate->getPositionPointer(),
+					h, v, rainCoveragePerObject);
+
+			rainGraphics->assemble(
+				canvas, nullptr,
+				IntRect(RAIN_TEX_LEFT, RAIN_TEX_TOP,
+					RAIN_TEX_WIDTH, RAIN_TEX_HEIGHT));
+
+			rain.addComponent(rainGraphics);
+			gameObjects.push_back(rain);
+		}
+	}
+	//End rain
+
 
 
 	// For both the cameras
@@ -151,5 +186,30 @@ void Factory::loadLevel(
 	mapCamera.addComponent(mapCameraGraphics);
 	gameObjects.push_back(mapCamera);
 	// End Map Camera
+
+	// Menu
+	GameObject menu;
+
+	shared_ptr<MenuUpdate> menuUpdate =
+		make_shared<MenuUpdate>(m_Window);
+	menuUpdate->assemble(levelUpdate,
+		playerUpdate);
+
+	inputDispatcher.registerNewInputReceiver(
+		menuUpdate->getInputReceiver());
+
+	menu.addComponent(menuUpdate);
+
+
+	shared_ptr<MenuGraphics>menuGraphics =
+		make_shared<MenuGraphics>();
+
+	menuGraphics->assemble(canvas, menuUpdate,
+		IntRect(TOP_MENU_TEX_LEFT, TOP_MENU_TEX_TOP,
+			TOP_MENU_TEX_WIDTH, TOP_MENU_TEX_HEIGHT));
+
+	menu.addComponent(menuGraphics);
+	gameObjects.push_back(menu);
+	// End menu
 
 }

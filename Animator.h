@@ -14,7 +14,9 @@ private:
 	int m_FrameWidth;
 	int m_FPS = 12;
 	Clock m_Clock;
+
 public:
+
 	Animator(
 		int leftOffset, int topOffset,
 		int frameCount,
